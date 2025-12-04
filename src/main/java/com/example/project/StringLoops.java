@@ -103,15 +103,49 @@ public class StringLoops {
 
     public void commaSeparated(int fromNum, int toNum) { // the tests will compare your printed output (not a returned
                                                          // string)
-        System.out.println();
+        StringBuilder comma = new StringBuilder();
+        if (fromNum < toNum) {
+            while (fromNum <= toNum) {
+                comma.append(fromNum);
+                if (fromNum + 1 <= toNum) {
+                    comma.append(", ");
+                }
+                fromNum++;
+            }
+            System.out.println(comma.toString());
+        } else if (fromNum >= toNum) {
+            while (fromNum >= toNum) {
+                comma.append(fromNum);
+                if (fromNum - 1 >= toNum) {
+                    comma.append(", ");
+                }
+                fromNum--;
+            }
+            System.out.println(comma.toString());
+        } else {
+            System.out.println(fromNum);
+        }
     }
 
     public boolean isPalindrome(String myString) {
-        return false;
+        StringBuilder reverse = new StringBuilder();
+        myString = myString.replace(" ", "");
+        reverse.append(myString);
+        return myString.equalsIgnoreCase(reverse.reverse().toString());
     }
 
-    public void multiPrint(String toPrint, int num) { // the tests will compare your printed output (not a returned
-                                                      // string)
-        System.out.println();
+    public void multiPrint(String toPrint, int num) { // the tests will compare your printed output (not a returned string)
+        StringBuilder printMultiple = new StringBuilder();
+        if (num > 0) {
+            for (int i = 0; i < num; i++) {
+                printMultiple.append(toPrint);
+                if (i + 1 < num) {
+                printMultiple.append(" ");
+                }
+            }
+            System.out.println("[" + printMultiple.toString() + "]");
+        } else {
+            System.out.println("[]");
+        }
     }
 }
